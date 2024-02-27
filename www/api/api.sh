@@ -34,7 +34,7 @@ if [ "$REQUEST_METHOD" == "GET" -a "$REQUEST_URI" == "/api/info" ]; then
     )
     echo $response | jq .
 elif [ "$REQUEST_METHOD" == "GET" -a "$REQUEST_URI" == "/api/uptime" ]; then
-    echo "Content-type: application/json"
+    echo "Content-type: text/plain"
     echo
     uptime -p | sed "s/up //" | awk -F "," '{print $1,$2,$3}'
 elif [ "$REQUEST_METHOD" == "GET" -a "$REQUEST_URI" == "/api/disk" ]; then

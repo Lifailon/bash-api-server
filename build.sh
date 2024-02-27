@@ -7,12 +7,12 @@ a2enmod auth_basic
 htpasswd -b -c /etc/apache2/.htpasswd rest api
 # Loads server and virtualhost scripts from the GitHub repository
 mkdir /var/www/api && touch /var/www/api/api.sh && chmod +x /var/www/api/api.sh
-curl -s "https://raw.githubusercontent.com/Lifailon/Shell-API-Server/rsa/www/api/api.sh" > /var/www/api/api.sh
-curl -s "https://raw.githubusercontent.com/Lifailon/Shell-API-Server/rsa/apache2/sites-available/api.conf" > /etc/apache2/sites-available/api.conf
+curl -s "https://raw.githubusercontent.com/Lifailon/Bash-API-Server/rsa/www/api/api.sh" > /var/www/api/api.sh
+curl -s "https://raw.githubusercontent.com/Lifailon/Bash-API-Server/rsa/apache2/sites-available/api.conf" > /etc/apache2/sites-available/api.conf
 # Activate the module and site
 a2enmod cgi
 a2ensite api.confs
-# Start server
-systemctl restart apache2
 # Grant sudo privileges to the www-data user to manage services
 echo "www-data ALL=(ALL) NOPASSWD: /bin/systemctl start *, /bin/systemctl stop *, /bin/systemctl restart *" >> /etc/sudoers
+# Start server
+systemctl restart apache2

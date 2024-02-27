@@ -122,6 +122,26 @@ Start the service:
 }
 ```
 
-List of services in HTML table format when accessed through a Web browser:
+PowerShell (output in default object format):
+
+```PowerShell
+$user = "rest"
+$pass = "api"
+$EncodingCred = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("${user}:${pass}"))
+$Headers = @{"Authorization" = "Basic ${EncodingCred}"}
+Invoke-RestMethod -Headers $Headers -Uri http://192.168.3.101:8443/api/service/cron
+
+unit        : cron.service
+load        : loaded
+active      : active
+sub         : running
+description : Regular background program processing daemon
+uptime      : 41min
+startup     : enabled
+```
+
+![Image alt](https://github.com/Lifailon/Bash-API-Server/blob/rsa/image/console-output.jpg)
+
+List of services in **HTML table format** when accessed through a Web browser Chrome:
 
 ![Image alt](https://github.com/Lifailon/Bash-API-Server/blob/rsa/image/service-list-html-table.jpg)

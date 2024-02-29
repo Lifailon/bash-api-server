@@ -6,13 +6,17 @@ Implemented Linux service management via **systemd** (with `systemctl` commands)
 
 ## 🚀 Install
 
-Install an Apache server and [jqlang](https://github.com/jqlang/jq) for `json` processing (in the example for Ubuntu/Debian):
+Install an **Apache server** and [jqlang](https://github.com/jqlang/jq) for `json` processing (in the example for Ubuntu/Debian):
 
 ```Bash
 apt install apache2 jq
 ```
 
-The following described customization steps can be performed using the [build](https://github.com/Lifailon/Bash-API-Server/blob/rsa/build.sh) script.
+### Build
+
+The following described customization steps can be performed using the [build](https://github.com/Lifailon/bash-api-server/blob/rsa/build.sh) script.
+
+> 💡 Sudo privileges required
 
 1. Configure port `8443` (or use any other by specifying it in `VirtualHost`):
 
@@ -31,7 +35,7 @@ htpasswd -b -c /etc/apache2/.htpasswd rest api
 
 ```Bash
 mkdir /var/www/api && touch /var/www/api/api.sh && chmod +x /var/www/api/api.sh
-curl -s "https://raw.githubusercontent.com/Lifailon/Bash-API-Server/rsa/www/api/api.sh" > /var/www/api/api.sh
+curl -s "https://raw.githubusercontent.com/Lifailon/bash-api-server/rsa/www/api/api.sh" > /var/www/api/api.sh
 ```
 
 4. Configure a **VirtualHost** (`/etc/apache2/sites-available/api.conf`) this way:
@@ -140,8 +144,8 @@ uptime      : 41min
 startup     : enabled
 ```
 
-![Image alt](https://github.com/Lifailon/Bash-API-Server/blob/rsa/image/console-output.jpg)
+![Image alt](https://github.com/Lifailon/bash-api-server/blob/rsa/image/console-output.jpg)
 
 List of services in **HTML table format** when accessed through a Web browser Chrome:
 
-![Image alt](https://github.com/Lifailon/Bash-API-Server/blob/rsa/image/service-list-html-table.jpg)
+![Image alt](https://github.com/Lifailon/bash-api-server/blob/rsa/image/service-list-html-table.jpg)
